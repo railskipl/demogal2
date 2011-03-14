@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 #  include AuthenticatedSystem
  # Time.zone = 'Central Time (US & Canada)'
   
-  helper_method :current_action, :current_controller
+ #  helper_method :current_action, :current_controller
   
   def current_action
     request.path_parameters['action']
