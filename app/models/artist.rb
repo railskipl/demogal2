@@ -15,7 +15,7 @@ class Artist < ActiveRecord::Base
                           :thumb => "-gravity center -thumbnail 85x75^ -extent 85x75"
                       }
                    
-  ]
+  
   has_many :artist_photos
   
  end
