@@ -11,5 +11,5 @@ test:
 production:
   session_key: h8ter_development
   session_secret: XSheUg1YEEkLX6bSCJYiwgNiV859hL2q
-  site_url: # http://example.com
+  site_url:  http://gentle-flower-366.heroku.com/
   
