@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   filter_parameter_logging :password
   include AuthenticatedSystem
-  Time.zone = 'Central Time (US & Canada)'
+ # Time.zone = 'Central Time (US & Canada)'
   
   helper_method :current_action, :current_controller
   
