@@ -12,7 +12,7 @@ class ArtistPhoto < ActiveRecord::Base
   has_attached_file :photo, 
                     :styles => { :original => "", :slider =>"", :medium => "", :thumb => "" },
                     :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-                    :path => ":rails_root/public/attachments/artist/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/attachments/artist-photos/:id/:style/:basename.:extension",
                     :convert_options => {
                       :original => "",
                       :slider =>"-gravity center -thumbnail 305x300^ -extent 496x330",
