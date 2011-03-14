@@ -80,7 +80,7 @@ class ArtistPhotosController < ApplicationController
     @artist_photo.destroy
 
     respond_to do |format|
-      format.html { redirect_to(artist_photos_url) }
+      format.html { redirect_to("/artists/#{@artist_photo.artist_id}") }
       format.xml  { head :ok }
     end
   end
