@@ -18,7 +18,7 @@ Rails::Initializer.run do |config|
    # :key => CONFIG['session_key'],
   #  :secret => CONFIG['session_secret'] || CONFIG['secret']
 #  }
-  config.action_controller.session = { :key => "_myapp_session", :secret => "XSheUg1YEEkLX6bSCJYiwgNiV859hL2q" }
+  config.action_controller.session = { :key => "h8ter_development", :secret => "XSheUg1YEEkLX6bSCJYiwgNiV859hL2q" }
     
   RE_LOGIN_RES = %w(admin all test help blog faq message messages login logout signup settings 
     register home info pages page faq follow followers following followings network networks 
