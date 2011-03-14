@@ -1,0 +1,45 @@
+<div id='sidebar'>
+			<div class='box'>
+			<h2>Page</h2>
+			
+			<p>Your pages are where you describe your work.</p>
+			<p>You can upload an image for your page by clicking the "Choose File" or "Upload" button to the right. The system doesn't resize page images, so please upload an appropriate size for your theme</p>
+			<p>Please enter a descriptive title for the page. This title will be shown to your potential clients and used for SEO purposes</p>
+			<p>Please enter the body for your page.</p>
+			<p>Click the "Update" button when you're done.</p>
+						
+			</div>
+	</div>
+
+    <div id="content">
+
+		<% form_for @page,:html => { :multipart => true } do |f| %>
+		  
+		  <div id="breadcrumb">
+		  	   <%= link_to "Pages", pages_path %> &raquo; New
+		  </div>
+		  <%= f.error_messages %>
+		  <p>
+		    <%= f.label :title %>
+		    <%= f.text_field :title, :class => 'text validate[required,length[2,100]]' %>
+		  </p>
+		  <p>
+		  	<%= f.label :photo %>
+		  	<%= f.file_field :photo %>
+		  </p>
+		  <p>
+		    <%= f.label :body %>
+		    
+
+		    <%= f.text_area :body, :class => 'tiny_mce long validate[required,length[10,10000]]' %>
+		  </p>
+		  <p>
+		    <%= f.label :keyword %>
+		    <%= f.text_field :keyword, :class => 'text long validate[optional,length[3,200]]' %>
+		  </p>
+		  
+		  <%= render :partial =>"shared/button" %>
+		<% end %>
+
+
+  </div>

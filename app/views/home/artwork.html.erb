@@ -1,0 +1,54 @@
+<div class="mainBody">
+	
+			<div class="lefter">
+				<div style="height:80px;">&nbsp;</div>
+					<div id="navigation">
+						<%= render :partial =>"shared/category_list", :locals=>{:categories=>Category.all} %>
+					</div>
+			</div>
+			
+			
+			
+			
+			<div class="container" >
+				<div style="height:80px;">&nbsp;</div>
+				 <div class="painting">
+					<div style="text-align:center;">
+						<%= image_tag @artist_photo.photo.url(:medium),:class=>'artwork_img' %> <br/>
+					</div>
+					<div class="zoom">
+						<%= link_to "#{image_tag("/images/zoom.jpg")}", @artist_photo.photo.url, :rel => 'colorbox' %>
+					</div> 
+				</div>
+					<div class="painting2"><span class="heading"><%= @artist.name %></span><br />
+						<p><strong>Title</strong>: <%= @artist_photo.title %></p>
+						<p><strong>Code</strong>: <%= @artist_photo.code %></p>
+					    <p><strong>Dimensions</strong>: <%= @artist_photo.dimension %></p> 
+					    <p><strong>Description</strong>: <div class="content_cms all"><%= @artist_photo.description %></div></p>
+					</div><br />
+				
+				<div style="height:15px; padding-top:297px;">&nbsp;</div>
+				<div class="hr"></div><br/>
+				
+				<!--BOX-->
+				<div style="display:inline; float:left;">
+					
+					<%= render :partial =>"artist_info", :locals=>{:artist_infos=>Artist.find_all_by_id(@artist_photo.artist_id)} %>
+					
+				</div>
+				<!--BOX-->
+			
+		</div>
+		
+			<!--right-->
+			<div class="righter">
+				<div id="portfolio">
+	       			<img alt="" class="prev" height="5" src="/images/prev.gif" width="22" />
+       				<img alt="" class="next" height="5" src="/images/next.gif" width="22" />
+       				
+       				<%= render :partial =>"artist_portfolio", :locals=>{:artist_photos=>ArtistPhoto.find_all_by_artist_id(@artist_photo.artist_id)} %>
+					<div class="complete-portfolio"><a href='/portfolio/artist/<%= @artist_photo.artist_id %>'><img src="/images/complete_portfolio.png"></a></div>	
+       			</div>
+     		</div>
+			<!--right-->
+</div>

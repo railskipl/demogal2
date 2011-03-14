@@ -1,0 +1,51 @@
+<div id="content-wide">
+  <div id="home-left">
+    <div id="home-links">
+      <%= link_to t(:what), '#', :id => 'home-what-link' %>
+      <%= link_to t(:why), '#', :id => 'home-why-link' %>
+      <%= link_to t(:how), '#', :id => 'home-how-link' %>
+    </div>
+    <h2><%=t :tagline %></h2>
+    <div id="home-what">
+      <p><img src="/images/h8box3.jpg" /></p>
+      <h3 class="home-copy"><%=t :home_what %></h3>
+    </div>
+    <div id="home-why" style="display:none;">
+      <p><img src="/images/h8box3.jpg" /></p>
+      <h3 class="home-copy"><%=t :home_why %></h3>
+    </div>
+    <div id="home-how" style="display:none;">
+      <p><img src="/images/h8box3.jpg" /></p>
+      <h3 class="home-copy"><%=t :home_how %></h3>
+    </div>
+    <div class="big-link"><%= link_to t(:start_link), signup_path %></div>
+  </div>
+
+  <div id="home-right">
+    <b>Login</b>
+    <%= render :partial => 'sessions/form' %>
+    <%= render :partial => 'home/latest' %>
+  </div>
+  <div class="clear"> </div>
+</div>
+
+<script type="text/javascript">
+  $("#login").focus();
+  $(document).ready(function() {
+    $('#home-what-link').click(function() {
+      $('#home-what').show();
+      $('#home-why').hide();
+      $('#home-how').hide();
+    });
+    $('#home-why-link').click(function() {
+      $('#home-what').hide();
+      $('#home-why').show();
+      $('#home-how').hide();
+    });
+    $('#home-how-link').click(function() {
+      $('#home-what').hide();
+      $('#home-why').hide();
+      $('#home-how').show();
+    });
+  });
+</script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+
+	
+  <title><%=t :title %>: <%=t :tagline %></title>
+  <%= stylesheet_link_tag 'application', 'smoothdivscroll', 'global/colorbox', :cache => 'client_all' %>
+  <%= javascript_include_tag 'jquery.min', 'jquery-ui.min','jquery.colorbox-min', 'jquery.tablednd_0_5','jquery.validationEngine','jquery.validationEngine-en','admin', 'jquery_ui_widget', 'jquery.smoothDivScroll-1.1-min', 'hoverIntent', 'jquery.rightClick', 'lightbox','jCarouselLite','show', 'navigation', :cache => 'client_all' %>
+ 
+</head>
+<body style="background-image:url(/images/mainBg.jpg); ">
+	<div >
+
+	<div class="header">
+		<div class="logo"><a href="/"><img src="/images/artgallery_logo.png" /></a></div>
+		<div class="cart"></div>
+		<div class="menu">
+			<div class="menu22">
+				<div class="menuInside wd1"><a href="/" class="topmenu <% if @title == 'Home' %>active <% end %>">Home</a></div> 
+				<div class="menuInside wd2"><a href="/about" class="topmenu <% if @title == 'About' %>active <% end %>">About</a> </div>  
+				<div class="menuInside wd3"><a href="/how_it_work" class="topmenu <% if @title == 'How It Works' %>active <% end %>">How It Works</a> </div>  
+				<div class="menuInside wd2"><a href="/artist/artworks" class="topmenu <% if @title == 'Art Works' %>active <% end %>">Art Works</a> </div>  
+				<div class="menuInside wd4"> <a href="#." class="topmenu">Contact</a></div> 
+		  	  </div> 
+				<div class="search">
+					<% form_tag "/artist-artworks/search" do %>
+					    
+						<%= text_field_tag :search_string %>
+						
+						<button class="searchbtn" type="submit"></button>
+						
+					<% end %>
+					
+					
+				</div>
+		</div>
+	</div>
+
+
+		<div class="content2">
+			
+			
+			
+			  <%= content_tag 'div', h(flash[:notice]), :id => 'notice' if flash[:notice] %>
+			  <%= content_tag 'div', h(flash[:error]), :id => 'error' if flash[:error] %>
+			  <%= render :partial => 'shared/prompt' if !logged_in? && current_controller == 'users' && current_action == 'show' %>
+			 
+			  <%= yield %>
+			  
+			
+		 	
+	 </div>
+	
+	<!--footer-->
+	<div class="footer">
+		<p class="footerlink"> <a href="/privacy_policy">Privacy Policy </a> | <a href="/terms_conditions">Terms of use</a>  </p>
+		<p class="copyright">&nbsp;&nbsp;&nbsp;&nbsp; &copy; Copyright 2011  Nagpur Art Gallerist, Powered By  <a href="http://kunalinfotech.net/" target="_blank">Kunal Infotech Pvt Ltd</a></p>
+	</div>
+	<!--footer-->
+
+   </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+	<ul class="tabs">
+		<li><a href="#tab1">Artist Info</a></li>
+		<li><a href="#tab2">Contact Person</a></li>
+	</ul>
+	<div class="tab_container">
+		<% for artist in artist_infos %>
+		<div id="tab1" class="tab_content">
+			<div class="artists_info"> 
+				<%= image_tag artist.photo.url(:thumb) %>           
+				<div class="content_cms"><%= artist.artist_info %></div>
+      		</div>
+    	</div>
+		<div id="tab2" class="tab_content">
+			<div class="artists_info">            
+				<div class="content_cms"><%= artist.contact_person %></div>
+       		</div>
+		</div>
+		<% end %>
+	</div>

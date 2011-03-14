@@ -1,0 +1,28 @@
+	<div id='sidebar'>
+			<div class='box'>
+			<h2>Categories</h2>
+			
+			<p>Admin can view number of Artists Category .</p>
+			<p>Here admin can add, edit and delete the category. </p>
+						
+			</div>
+	</div>
+
+    <div id="content">
+
+		<% form_for(@category) do |f| %>
+		  <%= f.error_messages %>
+		
+		  <p>
+		    <%= f.label :name %>
+		    <%= f.text_field :name %>
+		  </p>
+		  <p>
+		    <%= f.label :description %>
+		    <%= f.text_area :description %>
+		  </p>
+		  
+		  <%= render :partial =>"shared/button" %>
+		<% end %>
+   
+      </div>

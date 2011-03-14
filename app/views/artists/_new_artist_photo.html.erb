@@ -1,0 +1,41 @@
+
+	<h1>New artist_photo</h1>
+	
+	<% form_for artist_photo,:html => { :multipart => true } do |f| %>
+	  <%= f.error_messages %>
+	
+	   <%= f.hidden_field  :artist_id %>
+	  
+	  <p>
+	    <%= f.label :code %>
+	    <%= f.text_field :code, :class => 'text validate[required,length[2,25]]' %>
+	  </p>
+	  <p>
+	    <%= f.label :title %>
+	    <%= f.text_field :title, :class => 'text validate[required,length[2,100]]' %>
+	  </p>
+	  <p>
+	  	<%= f.label :photo %>
+	  	<%= f.file_field :photo, :class => 'Upload Gallery Image (Should be 275x200 pixels)' %>
+	  </p>
+	  <p>
+	    <%= f.label :dimension %>
+	    <%= f.text_field :dimension %>
+	  </p>
+	  <p>
+	        <%= f.check_box :set_slider %> <strong>Set As a Image Slider</strong>
+	  </p>
+	  
+	  <p>
+	  		<%= f.label :subcategory_id,'Painting Category' %>
+	  		<%= select("artist_photo", "subcategory_id", @subcategory.collect {|p|[p.title, p.id]},{:include_blank => 'Select Category'} ) %>
+	  </p>
+	  <p>
+	    <%= f.label :description %>
+	    <%= f.text_area :description, :class => 'tiny_mce' %>
+	  </p>
+	  	  	  
+	  <%= render :partial =>"shared/button" %>
+	<% end %>
+
+

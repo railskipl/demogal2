@@ -1,0 +1,35 @@
+<div id='sidebar'>
+			<div class='box'>
+			<h2>Categories</h2>
+			
+			<p>Admin can view number of Artists Category .</p>
+			<p>Here admin can add, edit and delete the category. </p>
+						
+			</div>
+	</div>
+
+    <div id="content">
+    	<p class='buttons'>
+    		
+    		<%= link_to "#{image_tag("/images/positive.png")}New category", new_category_path, :class => 'button positive' %>
+    		</p>
+		<p class='clear'></p>
+
+			<table class="admintable">
+			  <tr class="admintablehd">
+			    <td>Name</td>
+			    <td>Description</td>
+			    <td width="25%" style="text-align: center !important;">Action</td>
+			  </tr>
+			
+			<% @categories.each do |category| %>
+			  <tr>
+			    <td><%=h category.name %></td>
+			    <td><%= truncate(category.description, 110, "...") %> </td>
+			    <td><%= link_to 'Show', category %> | <%= link_to 'Edit', edit_category_path(category) %> | <%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+			  </tr>
+			<% end %>
+			</table>
+
+			<br />
+	   </div>

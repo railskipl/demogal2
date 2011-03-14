@@ -1,0 +1,14 @@
+	<ul>
+		<% for sub_category in sub_categories %>
+		
+		   <% if sub_category.id == @sub_cat_id %>
+		     
+		       <li class="selected"><%= sub_category.title %></li>
+		     
+		     <% else %>  
+		   	 		
+		   	<li><a href="/artworks/artist-categories/<%= sub_category.id %>" ><%= sub_category.title %></a>	</li>
+		   
+		     <% end %>
+		<% end %>
+	</ul>

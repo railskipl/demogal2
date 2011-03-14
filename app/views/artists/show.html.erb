@@ -1,0 +1,34 @@
+<div id='sidebar'>
+			<div class='box'>
+			<h2>Manage Galleries</h2>
+			
+			<p>Galleries are used to showcase your photos. The galleries you enter here will appear in the home page slides and throughout the rest of the site.</p>
+			<p>You can change the order that galleries appear in by clicking and dragging their title bars.</p>
+			<p>You can create a new gallery by clicking the "New Gallery" button.</p>
+			<p>You can manage a gallery's photos by clicking it's "Photos" link.</p>
+			<p>You can edit a gallery by clicking it's "Edit" link.</p>
+			<p>You can delete a gallery by clicking the red X button.</p>
+			
+			</div>
+	</div>
+	<div id="content">
+	
+	  <div id="breadcrumb">
+	  	   <%= link_to "Artist", artists_path %> &raquo;  <%=h @artist.name %>
+	  </div>
+
+		
+		<p class='buttons'> 
+		
+    		
+			<a href="/artist-photo/<%= @artist.id %>" class="button positive"><img src="/images/positive.png">&nbsp;Add Artist-Photo</a>
+    		
+    		</p>
+		<p class='clear'></p>
+
+   		<%= render :partial =>"photo_list", :locals=>{:artist_photos=>ArtistPhoto.find_all_by_artist_id(@artist.id)} %>
+
+
+
+
+  </div>

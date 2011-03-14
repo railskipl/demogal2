@@ -1,0 +1,28 @@
+   <div id='sidebar'>
+			<div class='box'>
+			<h2>FrontPage Slider</h2>
+			
+			<p>Here Display frontpage slider Images.</p>
+			<p>Admin can ser as a slider Images in Artists Photos.</p>
+			
+			
+			</div>
+	</div>
+	<div id="content">
+
+	   <h1>Sliders Images</h1>
+	
+	   <ul id="position_container" class="image_list ui-sortable">
+	
+		<% @artist_photos.each do |artist_photo| %>
+		
+		  <li>
+				<div class="draggable"><%=h artist_photo.title %></div>
+				<%= link_to image_tag(artist_photo.photo.url(:thumb)), artist_photo.photo.url, :rel => 'colorbox' %>
+				<br>
+				
+		  </li>
+		<% end %>
+	    </ul>
+	 </div>
+	 

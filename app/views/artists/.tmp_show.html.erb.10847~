@@ -1,0 +1,10 @@
+<p>
+  <b>Name:</b>
+  <%=h @artist.name %>
+</p>
+
+<%= render :partial =>"photo_list", :locals=>{:artist_photos=>ArtistPhoto.find_all_by_artist_id(@artist.id)} %>
+<%= render :partial =>"new_artist_photo", :locals=>{:artist_photo=>ArtistPhoto.new(:artist_id=>@artist.id)} %>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>

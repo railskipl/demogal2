@@ -1,0 +1,27 @@
+		
+		<div class="contentinside">
+			<div id="makeMeScrollable">
+				<div class="scrollingHotSpotLeft scrollingHotSpotLeftVisible"></div>
+					<div class="scrollingHotSpotRight scrollingHotSpotRightVisible"></div>
+						<div class="scrollWrapper">
+							<div class="scrollableArea">
+							 <% @artist_photos.each do |artist_photo| %>
+							 	<a href="/artworks/<%= artist_photo.urlname %>">
+								<%= image_tag artist_photo.photo.url(:slider), :class=>'slider-img' %></a>
+						   
+							<% end %>
+							</div>
+
+						</div>
+			 </div>
+
+				
+				
+				
+		</div>
+		 <div id="couple"><img src="/images/couple.gif"></div>
+		 
+		 <div id="artist-cat">
+				<%= render :partial =>"category", :locals=>{:categories=>Category.all} %>			
+		 </div>
+		

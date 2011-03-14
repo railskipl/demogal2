@@ -1,0 +1,15 @@
+<% form_for sub_category do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :category_id %>
+    <%= f.text_field :category_id %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>

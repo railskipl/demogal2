@@ -1,0 +1,21 @@
+<h1>Listing artist_photos</h1>
+
+   <ul id="position_container" class="image_list ui-sortable">
+
+	<% for artist_photo in artist_photos %>
+	
+	  <li>
+			<div class="draggable"><%=h artist_photo.title %>
+			<%= link_to image_tag("/images/cancel.png"), artist_photo, :confirm => 'Are you sure want to delete this photo?', :method => :delete, :class => 'delete' %>
+			
+			</div>
+			<a href="#"><%= image_tag artist_photo.photo.url(:thumb) %></a><br>
+			<div class="actions">
+				<%= link_to 'Edit', edit_artist_photo_path(artist_photo) %>
+			</div>
+	  </li>
+	<% end %>
+    </ul>
+
+<br />
+

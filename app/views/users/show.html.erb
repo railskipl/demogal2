@@ -1,0 +1,36 @@
+<div id="content-primary">
+  <span id="large-gravatar">
+    <a href="<%= profile_path(@user.login) %>">
+      <%= gravatar_for @user, :size => 75, :class => 'gravatar', :valign => 'middle' %>
+    </a>
+  </span>
+  <span id="large-user"><%= @user %> hates...</span>
+  <div class="clear"> </div>
+  <table class="messages messages-show" cellspacing="0">
+    <% @messages.each do |message| %>
+      <tr class="message">
+        <td class="message-body"><div>
+          <%= auto_link(message.body) {|m| truncate(m)} %>
+          <span class="detail"><%= link_to time_ago_in_words(message.created_at) + ' ago', message %></span>
+        </div></td>
+      </tr>
+    <% end %>
+  </table>
+  <div class="paginate">
+    <%= will_paginate @messages, :previous_label => '&laquo; Newer', :next_label => 'Older &raquo;', :page_links => false %>
+  </div>
+</div>
+
+<div id="content-secondary">
+  <div id="secondary-section"><span class="left">About</span><div class="clear"> </div></div>
+  <span id="profile-login"><i><b>Name</b> <%= @user %></i></span>
+  <div id="secondary-section"><br /><span class="left">Stats</span><div class="clear"> </div></div>
+  <ul><li>
+    <span class="list-left"><%= link_to 'Messages' %></span>
+    <span class="list-right"><%= @user.messages_count %></span>
+  </li></ul>
+  <div id="secondary-section"><br /><span class="left">Most hateful</span><div class="clear"> </div></div>
+  <%= render :partial => 'shared/users' %>
+</div>
+
+<div class="clear"> </div>

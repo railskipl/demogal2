@@ -1,0 +1,7 @@
+		 <p class="button">
+		  	<button class="button positive" type="submit">
+    			<%= image_tag("/images/icons/positive.png", :alt => "Create") %> Create
+			</button>
+			<%= link_to "#{image_tag("/images/icons/negative.png")}Cancel", onclick="javascript:history.back()", :class => 'button negative' %>
+		    
+		  </p>

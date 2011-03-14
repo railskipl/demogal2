@@ -1,0 +1,46 @@
+<div id='sidebar'>
+			<div class='box'>
+			<h2>Manage Galleries</h2>
+			
+			<p>Galleries are used to showcase your photos. The galleries you enter here will appear in the home page slides and throughout the rest of the site.</p>
+			<p>You can change the order that galleries appear in by clicking and dragging their title bars.</p>
+			<p>You can create a new gallery by clicking the "New Gallery" button.</p>
+			<p>You can manage a gallery's photos by clicking it's "Photos" link.</p>
+			<p>You can edit a gallery by clicking it's "Edit" link.</p>
+			<p>You can delete a gallery by clicking the red X button.</p>
+			
+			</div>
+	</div>
+	<div id="content">
+				
+		<% form_for @artist,:html => { :multipart => true } do |f| %>
+		  <div id="breadcrumb">
+		  	   <%= link_to "Artist", artists_path %> &raquo; New
+		  </div>
+		  
+		  <%= f.error_messages %>
+		
+		  <p>
+		    <%= f.label :name %>
+		    <%= f.text_field :name, :class => 'text validate[required,length[2,100]]' %>
+		  </p>
+		  <p>
+		  	<%= f.label :photo %>
+		  	<%= f.file_field :photo %>
+		  </p>
+		  
+		  <p>
+		    <%= f.label :artist_info %>
+		    <%= f.text_area :artist_info, :class => 'brief validate[required,length[5,10000]]' %>
+		  </p>
+		  
+		  <p>
+		    <%= f.label :contact_person %>
+		    <%= f.text_area :contact_person, :class => 'brief validate[required,length[5,5000]]' %>
+		  </p>
+		  
+		  <%= render :partial =>"shared/button" %>
+		 
+		<% end %>
+	</div>	
+

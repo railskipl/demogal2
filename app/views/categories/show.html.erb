@@ -1,0 +1,37 @@
+	<div id='sidebar'>
+			<div class='box'>
+			<h2>Categories</h2>
+			
+			<p>Admin can view number of Artists Category .</p>
+			<p>Here admin can add, edit and delete the category. </p>
+						
+			</div>
+	</div>
+
+    <div id="content">
+	
+	  <div id="breadcrumb">
+	  	   <%= link_to "Category", categories_path %> &raquo;  <%=h @category.name %>
+	  </div>
+
+		
+		<p class='buttons'> 
+		
+    		
+			<a href="/categories/sub-categories/<%= @category.id %>" class="button positive"><img src="/images/positive.png">&nbsp;Add Sub-Category</a>
+    		
+    		</p>
+		<p class='clear'></p>
+
+   		<%= render :partial =>"sub_category_lists", :locals=>{:sub_categories=>SubCategory.find_all_by_category_id(@category.id)} %>
+
+
+
+
+  </div>
+  
+  
+
+
+
+	

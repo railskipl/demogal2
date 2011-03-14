@@ -1,0 +1,42 @@
+		<% @artist_photos.each do |artist_photo| %>
+			<p><%= link_to image_tag(artist_photo.photo.url(:medium)), edit_artist_path(artist_photo) %></p>
+		<% end %>
+		<div class="contentinside">
+			  <div id="makeMeScrollable">
+					<div class="scrollingHotSpotLeft scrollingHotSpotLeftVisible"></div>
+					<div class="scrollingHotSpotRight scrollingHotSpotRightVisible"></div>
+					<div class="scrollWrapper">
+						<div class="scrollableArea">
+			
+							<a href="http://www.google.co.in/"><img src="images/imageslider/field.jpg" alt="Demo image" width="497" height="330" /></a>
+							<a href="http://www.yahoo.com/"><img src="images/imageslider/gnome.jpg" alt="Demo image" width="496" height="330" /></a>
+							<a href="http://www.facebook.com/"><img src="images/imageslider/pencils.jpg" alt="Demo image" width="496" height="330" /></a>
+							<img src="images/imageslider/golf.jpg" alt="Demo image" width="366" height="330" />
+							<img src="images/imageslider/river.jpg" alt="Demo image" width="496" height="330" />
+							<img src="images/imageslider/train.jpg" alt="Demo image" width="440" height="330" />
+							<img src="images/imageslider/leaf.jpg" alt="Demo image" width="496" height="330" />
+							<img src="images/imageslider/dog.jpg" alt="Demo image" width="497" height="330"/>
+						</div>
+			
+					</div>
+				</div>
+		</div>
+		
+		<div style="width:730px; margin:0 auto; padding-left:39px;">
+			<table width="730" align="center">
+			
+			<div class="boxLeft">
+				<div class="headingbox">National Artist</div>
+				<div class="boxcontent">This is sample text Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </div>
+			</div>
+			<div class="boxMiddle">
+				<div class="headingbox">Professional Artist</div>
+				<div class="boxcontent">This is sample text Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a  </div>
+			</div>
+			<div class="boxRight">
+				<div class="headingbox">Student</div>
+				<div class="boxcontent">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </div>
+			</div>
+			</table>
+			<div style="height:120px;">&nbsp;</div>
+		</div>

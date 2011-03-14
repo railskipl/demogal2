@@ -1,0 +1,11 @@
+				<div class="carousel">
+	 				<ul>
+	 					<% for artist_photo in artist_photos %>
+			     		<li>
+	        				<div><a href="/artworks/<%= artist_photo.urlname %>"> <%= image_tag artist_photo.photo.url(:thumb) %> </a></div>
+							<%= truncate(artist_photo.title, 14, "...") %>
+						</li>
+						<% end %>
+						
+					</ul>
+				</div>

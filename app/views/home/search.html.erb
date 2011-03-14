@@ -1,0 +1,25 @@
+<div class="contentinside">
+			
+			<div class="lefter">
+					<div id="navigation">
+						<%= render :partial =>"shared/category_list", :locals=>{:categories=>Category.all} %>
+					</div>
+			</div>
+			<div class="mid-content"> 
+				<div class="maintitle">Artworks</div><br/>
+				
+				<div class="gallery">
+					
+					<% @artist_photos.each do |artist_photo| %>
+					 
+                      <div class="artdiv">
+                    	<a href="/artworks/<%= artist_photo.urlname %>"> <%= image_tag artist_photo.photo.url(:thumb), :class=>'dropshadow' %></a><br/><br/>
+                    	<%= artist_photo.title%>
+			      		</div>
+			      	   
+                     <% end %>
+                  </div>
+                  
+             </div>   
+						  
+		</div>

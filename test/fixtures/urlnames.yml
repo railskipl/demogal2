@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nameable_type: MyString
+  nameable_id: MyString
+  name: MyString
+
+two:
+  nameable_type: MyString
+  nameable_id: MyString
+  name: MyString

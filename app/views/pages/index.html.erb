@@ -1,0 +1,41 @@
+    <div id='sidebar'>
+			<div class='box'>
+			<h2>Page</h2>
+			
+			<p>Your pages are where you describe your work.</p>
+			<p>You can upload an image for your page by clicking the "Choose File" or "Upload" button to the right. The system doesn't resize page images, so please upload an appropriate size for your theme</p>
+			<p>Please enter a descriptive title for the page. This title will be shown to your potential clients and used for SEO purposes</p>
+			<p>Please enter the body for your page.</p>
+			<p>Click the "Update" button when you're done.</p>
+						
+			</div>
+	</div>
+
+    <div id="content">
+    	<p class='buttons'>
+    		
+    		<%= link_to "#{image_tag("/images/positive.png")}New Page", new_page_path, :class => 'button positive' %>
+    		</p>
+		<p class='clear'></p>
+		   
+
+			<table class="admintable">
+			  <tr class="admintablehd">
+			    <td width="25%">Title</td>
+			    <td>Description</td>
+			    <td width="27%" style="text-align: center !important;">Action</td>
+			  </tr>
+			
+			<% @pages.each do |page| %>
+			  <tr>
+			    <td><%=h page.title %></td>
+			    <td><%= truncate(page.body, 110, "...") %></td>
+			    <td style="text-align: center !important;"><%= link_to "#{image_tag("/images/icons/edit.png")}Edit", edit_page_path(page), :class => 'button positive' %> &nbsp;&nbsp; 
+				<%= link_to "#{image_tag("/images/icons/negative.png")}Delete", page, :confirm => 'Are you sure delete this page?', :method => :delete, :class => 'button negative' %></td>
+			    
+			  </tr>
+			<% end %>
+			</table>
+			
+			<br />
+   </div>

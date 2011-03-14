@@ -1,0 +1,20 @@
+		
+		<div class="contentinside">
+			
+			<% if @page.photo.url(:thumb) != "/photos/thumb/missing.png" %>
+			<div class="content-img">
+				
+			  <%= image_tag @page.photo.url(:thumb), :class=>"artwork_img"%>
+			</div>
+			<% end %>
+			
+		  	<div <% if @page.photo.url(:thumb) == "/photos/thumb/missing.png" %> class="content-page2" <% else %> class="content-page" <% end %>>
+		  		
+		  		<div class="maintitle"><%= @page.title %></div>
+		  		<div class="content_cms">
+		  	  	 	<%= decode_entities(@page.body) %>
+		  	  	 </div>
+		  	  	
+		  	</div>
+		</div>
+		 

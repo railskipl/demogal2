@@ -1,0 +1,35 @@
+		
+		<div class="contentinside">
+			  <div id="makeMeScrollable">
+					<div class="scrollingHotSpotLeft scrollingHotSpotLeftVisible"></div>
+					<div class="scrollingHotSpotRight scrollingHotSpotRightVisible"></div>
+					<div class="scrollWrapper">
+						<div class="scrollableArea">
+							<% @artist_photos.each do |artist_photo| %>
+							<%= link_to image_tag(artist_photo.photo.url(:slider),:style=>'-moz-box-shadow: 5px 5px 8px #000000;
+    border: 9px solid #000000;') %>
+							<% end %>
+						</div>
+			
+					</div>
+				</div>
+		</div>
+		
+		<div style="width:730px; margin:0 auto; padding-left:39px;">
+			<table width="730" align="center">
+			
+			<div class="boxLeft">
+				<div class="headingbox">National Artist</div>
+				<div class="boxcontent">This is sample text Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </div>
+			</div>
+			<div class="boxMiddle">
+				<div class="headingbox">Professional Artist</div>
+				<div class="boxcontent">This is sample text Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a  </div>
+			</div>
+			<div class="boxRight">
+				<div class="headingbox">Student</div>
+				<div class="boxcontent">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </div>
+			</div>
+			</table>
+			<div style="height:120px;">&nbsp;</div>
+		</div>

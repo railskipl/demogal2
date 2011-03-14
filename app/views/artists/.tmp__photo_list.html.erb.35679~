@@ -1,0 +1,29 @@
+<h1>Listing artist_photos</h1>
+
+<table>
+  <tr>
+    
+    <th>Code</th>
+    <th>Title</th>
+    <th>Dimension</th>
+    <th>Description</th>
+  </tr>
+
+<% for artist_photo in artist_photos %>
+  <tr>
+    
+    <td><%=h artist_photo.code %></td>
+    <td><%=h artist_photo.title %></td>
+    <td><%=h artist_photo.dimension %></td>
+    <td><%=h artist_photo.description %></td>
+	<td><%= image_tag artist_photo.photo.url() %></td>
+    <td><%= link_to 'Show', artist_photo %></td>
+    <td><%= link_to 'Edit', edit_artist_photo_path(artist_photo) %></td>
+    <td><%= link_to 'Destroy', artist_photo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New artist_photo', new_artist_photo_path %>

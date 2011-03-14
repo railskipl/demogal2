@@ -1,0 +1,30 @@
+<h1>Editing artist_photo</h1>
+
+<% form_for(@artist_photo) do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.hidden_field  :artist_id %>
+  
+  <p>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :dimension %><br />
+    <%= f.text_field :dimension %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @artist_photo %> |
+<%= link_to 'Back', artist_photos_path %>

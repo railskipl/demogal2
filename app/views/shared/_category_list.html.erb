@@ -1,0 +1,10 @@
+		
+		<ul>
+			<% for category in categories %>
+			<li><a href="javascript:void(0);"><%= category.name %></a>
+				<%= render :partial =>"shared/subcat_lists", :locals=>{:sub_categories=>SubCategory.find_all_by_category_id(category.id)} %>
+			</li>
+			<% end %>
+		</ul>
+		
+		

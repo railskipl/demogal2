@@ -1,0 +1,28 @@
+<p>
+  <b>Artist:</b>
+  <%=h @artist_photo.artist_id %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%=h @artist_photo.code %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @artist_photo.title %>
+</p>
+
+<p>
+  <b>Dimension:</b>
+  <%=h @artist_photo.dimension %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @artist_photo.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_artist_photo_path(@artist_photo) %> |
+<%= link_to 'Back', artist_photos_path %>

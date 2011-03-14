@@ -1,0 +1,24 @@
+<h1>Editing artist</h1>
+
+<% form_for(@artist) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :artist_info %><br />
+    <%= f.text_area :artist_info %>
+  </p>
+  <p>
+    <%= f.label :contact_person %><br />
+    <%= f.text_area :contact_person %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @artist %> |
+<%= link_to 'Back', artists_path %>

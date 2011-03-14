@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="generator" content="http://almosteffortless.com/h8ter/" />
+  <title><%=t :title %>: <%=t :tagline %></title>
+  <%= javascript_include_tag 'application', 'jquery-1.2.6.min', 'jquery.charcounter', 'jquery.corner', :cache => true %>
+  <%= stylesheet_link_tag 'application' %>
+  <%= auto_discovery_link_tag(:rss, messages_url(:format => :rss)) %>
+</head>
+<body>
+  <div id="header">
+    <div id="nav">
+      <%= render :partial => 'shared/nav' %>
+    </div>
+    <a href="/"><img src="/images/h8ter.png" alt="h8ter" /></a>
+  </div>
+  <%= content_tag 'div', h(flash[:notice]), :id => 'notice' if flash[:notice] %>
+  <%= content_tag 'div', h(flash[:error]), :id => 'error' if flash[:error] %>
+  <%= render :partial => 'shared/prompt' if !logged_in? && current_controller == 'users' && current_action == 'show' %>
+  <div id="wrapper">
+  <%= yield %>
+  <div id="footer">
+    <%= link_to 'almost effortless', 'http://almosteffortless.com' %> + <a href="http://twitter.com/h8ter/">twitter.com/h8ter</a> = &hearts;
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#nav, #content-wide, #content-primary, #content-secondary, #notice, #error').corner();
+  });
+</script>
+<%= render :partial => 'shared/google_analytics' if CONFIG['google_analytics'] %>
+</body>
+</html>

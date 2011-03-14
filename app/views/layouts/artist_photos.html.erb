@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Artists: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'admin', 'global/validationEngine.jquery', 'global/colorbox', :cache => 'admin_all' %>
+  <%= javascript_include_tag 'jquery.min.js', 'jquery-ui.min.js', 'jquery.gritter.js', 'jquery.colorbox-min.js', 'jquery.tablednd_0_5.js', 'jquery.validationEngine.js', 'jquery.validationEngine-en.js', 'jquery.uploadify.v2.1.0.min.js', 'positioning.js', 'tiny_mce/tiny_mce', 'admin.js', :cache => 'admin_all' %>
+  <script type="text/javascript">
+
+     tinyMCE.init({  theme:"advanced",
+					mode:"textareas",
+    				editor_selector : "tiny_mce"
+    			});
+   </script>
+</head>
+<body>
+	<div id="header">
+		<div id="logo">
+			<%= image_tag  "/images/admin-logo.gif" %>
+		</div>
+		<div id="nav">
+			<ul class="tabs">
+				<li><a <% if @title == 'artist_photos' %> class="active" <% end %> href="/artists">Artists</a></li>
+				<li><a <% if controller.controller_name == 'pages' %> class="active" <% end %> href="/pages">Pages</a></li>
+				<li><a <% if controller.controller_name == 'categories' %> class="active" <% end %> href="/categories">Artists Category</a></li>
+				<li><a <% if @title == 'slider' %> class="active" <% end %> href="/sliders">Sliders</a></li>
+				<li><a class="" href="#">Settings</a></li>
+				<li><a href="#">Logout</a></li>
+			</ul>
+		</div>
+		</div>
+
+	<div id='container'>
+		<div id="main">
+			<p style="color: green"><%= flash[:notice] %></p>
+			<%= yield %>
+		</div>
+	</div>
+	
+	<div id="footer">
+      <div id="footer_logo">
+            <div id="powered_by">
+            	Powered by <a target="_blank" href="http://www.kunalinfotech.net">KIPL</a>
+        	</div>
+      </div>
+    </div>
+
+</body>
+</html>
