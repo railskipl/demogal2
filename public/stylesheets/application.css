@@ -36,7 +36,7 @@ top:853px; width:100%; z-index:999999;}
 li{list-style:none;}
 
 .content{width:1000px; height:auto; margin:0 auto;}
-.contentinside{margin:0 auto; padding-top:90px; width:1037px; }
+.contentinside{margin:0 auto; padding-top:90px; width:1006px; }
 
 .boxLeft{width:240px; height:150px; margin:0 auto; float:left; text-align:left;}
 .boxMiddle{width:240px; height:150px; margin:0 auto; float:left; text-align:left;}
@@ -166,7 +166,7 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  { background: #D7DAE0; b
 
 .content-page {float: left; padding-right: 8px; width: 600px;  height: 495px; overflow: auto;}
 
-.slider-img {-moz-box-shadow: 5px 5px 8px #000000; border: 5px solid #000000; width:496px; height:330px;}
+.slider-img {-moz-box-shadow: 5px 5px 8px #000000; border: 5px solid #000000; width:480px; height:330px;}
 
 .footerlink a {color:#C1C9C4; font-size: 11px; text-decoration:none;}
 .footerlink a:hover { text-decoration:underline; }
@@ -199,7 +199,7 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  { background: #D7DAE0; b
 .wd3 {width: 135px;}
 .wd4 {width: 79px;}
 
-.mid-content { float: left; margin: 0 auto; text-align: left; width: 810px; padding-left: 22px; } 
+.mid-content { float: left; margin: 0 auto; text-align: left; width: 792px; padding-left: 22px; } 
 .artdiv { float: left; width: 128px; text-align: center;}
 
 .menu22 a.active { font-family:Century Gothic; font-size:17px; color:#feab00; text-decoration: none; 	font-weight: bold;}
