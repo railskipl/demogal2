@@ -208,7 +208,7 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  { background: #D7DAE0; b
 
 .content-page2 { float: left; height: 495px; overflow: auto; padding-left: 74px; width: 884px;}
 
-.searchbtn {background-image:url(../images/search.png); width:20px; height:23px; cursor:pointer;}
+.searchbtn {background-image:url(../images/search.png); width:20px; height:23px; cursor:pointer; border: medium none;}
 
 
 
