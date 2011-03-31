@@ -24,11 +24,10 @@
 		<div id="nav">
 			<ul class="tabs">
 				<li><a <% if controller.controller_name == 'artists' %> class="active" <% end %> href="/artists">Artists</a></li>
-				<li><a <% if controller.controller_name == 'pages' %> class="active" <% end %> href="/pages">Pages</a></li>
+				<li><a <% if controller.controller_name == 'pages' %> class="active" <% end %> href="/content-pages">Pages</a></li>
 				<li><a <% if controller.controller_name == 'categories' %> class="active" <% end %> href="/categories">Artists Category</a></li>
 				<li><a <% if @title == 'slider' %> class="active" <% end %> href="/sliders">Sliders</a></li>
-				<li><a class="" href="#">Settings</a></li>
-				<li><a href="#">Logout</a></li>
+				<li><% if logged_in? -%><%= link_to "Logout", logout_path %><% else -%><%= link_to "Login",  login_path %> &nbsp; <% end -%></li>
 			</ul>
 		</div>
 		</div>
@@ -43,7 +42,7 @@
 	<div id="footer">
       <div id="footer_logo">
             <div id="powered_by">
-            	Powered by <a target="_blank" href="http://www.kunalinfotech.net">KIPL</a>
+            	Powered by <a target="_blank" href="http://www.kunalinfotech.net">Kunalinfotech Pvt Ltd</a>
         	</div>
       </div>
     </div>

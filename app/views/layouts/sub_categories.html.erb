@@ -4,14 +4,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>SubCategories: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
+  <title>Artists: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'admin', 'global/validationEngine.jquery', 'global/colorbox', :cache => 'admin_all' %>
+  <%= javascript_include_tag 'jquery.min.js', 'jquery-ui.min.js', 'jquery.gritter.js', 'jquery.colorbox-min.js', 'jquery.tablednd_0_5.js', 'jquery.validationEngine.js', 'jquery.validationEngine-en.js', 'jquery.uploadify.v2.1.0.min.js', 'positioning.js', 'admin.js', :cache => 'admin_all' %>
+  <%= javascript_include_tag "tiny_mce/tiny_mce" %>
+  <script type="text/javascript">
+
+     tinyMCE.init({  theme:"advanced",
+					mode:"textareas",
+    				editor_selector : "tiny_mce"
+    			});
+   </script>
 </head>
 <body>
+	<div id="header">
+		<div id="logo">
+			<%= image_tag  "/images/admin-logo.gif" %>
+		</div>
+		<div id="nav">
+			<ul class="tabs">
+				<li><a <% if controller.controller_name == 'artists' %> class="active" <% end %> href="/artists">Artists</a></li>
+				<li><a <% if controller.controller_name == 'pages' %> class="active" <% end %> href="/content-pages">Pages</a></li>
+				<li><a <% if controller.controller_name == 'sub_categories' %> class="active" <% end %> href="/categories">Artists Category</a></li>
+				<li><a <% if @title == 'slider' %> class="active" <% end %> href="/sliders">Sliders</a></li>
+				<li><% if logged_in? -%><%= link_to "Logout", logout_path %><% else -%><%= link_to "Login",  login_path %> &nbsp; <% end -%></li>
+			</ul>
+		</div>
+		</div>
 
-<p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield %>
+	<div id='container'>
+		<div id="main">
+			<p style="color: green"><%= flash[:notice] %></p>
+			<%= yield %>
+		</div>
+	</div>
+	
+	<div id="footer">
+      <div id="footer_logo">
+            <div id="powered_by">
+            	Powered by <a target="_blank" href="http://www.kunalinfotech.net">Kunalinfotech Pvt Ltd</a>
+        	</div>
+      </div>
+    </div>
 
 </body>
 </html>

@@ -1,0 +1,22 @@
+<div class="cart-title">Your Cart</div>
+<table>
+  <%= render(:partial => "cart_item", :collection => cart.items) %>
+  
+  <tr class="total-line cart-bg">
+    <td colspan="2">Total</td>
+    <td class="total-cell"><%= number_to_currency(cart.total_price) %></td>
+  </tr>
+</table >
+<table width="100%">
+	<tr>
+		<td width="50%">
+			<%= button_to 'Checkout', {:action => 'checkout'}, :class => 'cart-btn' %>
+		</td>
+		<td>
+			<% form_remote_tag :url => { :action => 'empty_cart' } do %>
+			  <%= submit_tag 'Empty Cart', :class=>'cart-btn' %>
+			<% end %>
+		</td>
+	</tr>
+
+</table>

@@ -1,20 +1,31 @@
-<h1>Editing sub_category</h1>
+	<div id='sidebar'>
+			<div class='box'>
+			<h2>Categories</h2>
+			
+			<p>Admin can view number of Artists Category .</p>
+			<p>Here admin can add, edit and delete the category. </p>
+						
+			</div>
+	</div>
 
-<% form_for(@sub_category) do |f| %>
-  <%= f.error_messages %>
+    <div id="content">
+    	
+			<h1>Editing sub category</h1>
+			
+			<% form_for(@sub_category) do |f| %>
+			  <%= f.error_messages %>
+			
+			  <p>
+			    <%= f.label :title %><br />
+			    <%= f.text_field :title %>
+			  </p>
+			  <p>
+			    <%= f.label :category_id %><br />
+			    <%= f.text_field :category_id %>
+			  </p>
+			  <p>
+			    <%= f.submit 'Update' %>
+			  </p>
+			<% end %>
 
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :category_id %><br />
-    <%= f.text_field :category_id %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @sub_category %> |
-<%= link_to 'Back', sub_categories_path %>
+     </div>

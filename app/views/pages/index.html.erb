@@ -14,7 +14,7 @@
     <div id="content">
     	<p class='buttons'>
     		
-    		<%= link_to "#{image_tag("/images/positive.png")}New Page", new_page_path, :class => 'button positive' %>
+    		<%= link_to "#{image_tag("/images/positive.png")}New Page", '/content-pages/new', :class => 'button positive' %>
     		</p>
 		<p class='clear'></p>
 		   
@@ -30,8 +30,9 @@
 			  <tr>
 			    <td><%=h page.title %></td>
 			    <td><%= truncate(page.body, 110, "...") %></td>
-			    <td style="text-align: center !important;"><%= link_to "#{image_tag("/images/icons/edit.png")}Edit", edit_page_path(page), :class => 'button positive' %> &nbsp;&nbsp; 
-				<%= link_to "#{image_tag("/images/icons/negative.png")}Delete", page, :confirm => 'Are you sure delete this page?', :method => :delete, :class => 'button negative' %></td>
+			    <td style="text-align: center !important;"><a href="/content-pages/<%= page.urlname %>/edit" class='button positive'><img src="/images/icons/edit.png">Edit</a> &nbsp;&nbsp; 
+			    	<a href="/content-pages/<%= page.urlname %>/delete" class="button negative" onclick="javascript: return confirm('Are you sure you want to delete this page?');"><img src="/images/icons/negative.png">Delete</a>
+				</td>
 			    
 			  </tr>
 			<% end %>

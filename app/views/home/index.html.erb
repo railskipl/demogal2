@@ -1,6 +1,12 @@
 		
 		<div class="contentinside">
-			<div id="makeMeScrollable">
+			
+			
+			  <%= content_tag 'div', h(flash[:notice]), :class => 'errorMsg', :id => 'notice' if flash[:notice] %>
+			  
+		   
+			
+		       <div id="makeMeScrollable">
 				<div class="scrollingHotSpotLeft scrollingHotSpotLeftVisible"></div>
 					<div class="scrollingHotSpotRight scrollingHotSpotRightVisible"></div>
 						<div class="scrollWrapper">
@@ -13,7 +19,7 @@
 							</div>
 
 						</div>
-			 </div>
+			 	</div>
 
 				
 				

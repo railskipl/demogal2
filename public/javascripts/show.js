@@ -1,26 +1,26 @@
-$(document).ready(function(){
+jQuery(document).ready(function(){
 
-  if ($("#product_size").val() != undefined)
+  if (jQuery("#product_size").val() != undefined)
   {
-    setPrice($("#product_size").val());
-    $("#product_size").change(function(){
-      setPrice($(this).val());
+    setPrice(jQuery("#product_size").val());
+    jQuery("#product_size").change(function(){
+      setPrice(jQuery(this).val());
     });
   }
 
-	$("#zoom").lightBox();
+	jQuery("#zoom").lightBox();
 
-	$(".sub_menu a").click(function(e) {
+	jQuery(".sub_menu a").click(function(e) {
 		e.preventDefault();
-		var id = $(this).attr("name");
-		$(".sub_menu a").removeClass("selected");
-		$(this).addClass("selected");
-		$(".container").hide();
-		$("#"+id).show();
+		var id = jQuery(this).attr("name");
+		jQuery(".sub_menu a").removeClass("selected");
+		jQuery(this).addClass("selected");
+		jQuery(".container").hide();
+		jQuery("#"+id).show();
 		return false;
 	});
 
-	$(".carousel").jCarouselLite({
+	jQuery(".carousel").jCarouselLite({
 		btnNext: ".next",
 		btnPrev: ".prev",
 		vertical: true,
@@ -28,56 +28,56 @@ $(document).ready(function(){
 		circular: false
 	});
 
-	$("#send_to_friend").click(function() {
-		var title = $(this).attr("title");
-		$.ajax({
+	jQuery("#send_to_friend").click(function() {
+		var title = jQuery(this).attr("title");
+		jQuery.ajax({
 		  type:'GET',
-		  url: $(this).attr('href'),
+		  url: jQuery(this).attr('href'),
 		  success:function(data) {
-			$.openWindow(520, 400, title, data);
+			jQuery.openWindow(520, 400, title, data);
 		  }
 		});
 		return false;
 	});
 
-	$("#gift_certificate").click(function() {
-    var title = $(this).attr("title");
-		$.ajax({
+	jQuery("#gift_certificate").click(function() {
+    var title = jQuery(this).attr("title");
+		jQuery.ajax({
 		  type:'GET',
-		  url: $(this).attr('href'),
+		  url: jQuery(this).attr('href'),
 		  success:function(data) {
-			$.openWindow(500, 530, title, data);
+			jQuery.openWindow(500, 530, title, data);
 		  }
 		});
 		return false;
 	});
 
-  $('#product_frame').click(function() {
-    var price = parseFloat($('#product_price').val());
-    var frame = parseFloat($('#product_frame_price').val());
-    if ($(this).attr('checked'))
+  jQuery('#product_frame').click(function() {
+    var price = parseFloat(jQuery('#product_price').val());
+    var frame = parseFloat(jQuery('#product_frame_price').val());
+    if (jQuery(this).attr('checked'))
       price += frame;
     else
       price -= frame;
-    $('#show_price').html(formatCurrency(price));
-    $('#product_price').val(price);
+    jQuery('#show_price').html(formatCurrency(price));
+    jQuery('#product_price').val(price);
   });
 
-  $('#product_matt').click(function() {
-    var price = parseFloat($('#product_price').val());
-    var matt  = parseFloat($('#product_matt_price').val());
-    if ($(this).attr('checked'))
+  jQuery('#product_matt').click(function() {
+    var price = parseFloat(jQuery('#product_price').val());
+    var matt  = parseFloat(jQuery('#product_matt_price').val());
+    if (jQuery(this).attr('checked'))
       price += matt;
     else
       price -= matt;
-    $('#show_price').html(formatCurrency(price));
-    $('#product_price').val(price);
+    jQuery('#show_price').html(formatCurrency(price));
+    jQuery('#product_price').val(price);
   });
 });
 
 
 function formatCurrency(num) {
-  num = num.toString().replace(/\$|\,/g,'');
+  num = num.toString().replace(/\jQuery|\,/g,'');
   if(isNaN(num))
     num = "0";
   sign = (num == (num = Math.abs(num)));
@@ -89,18 +89,18 @@ function formatCurrency(num) {
   for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)
     num = num.substring(0,num.length-(4*i+3))+','+
   num.substring(num.length-(4*i+3));
-  return (((sign)?'':'-') + '$' + num + '.' + cents);
+  return (((sign)?'':'-') + 'jQuery' + num + '.' + cents);
 }
 
 function setPrice(val)
 {
   price = parseFloat(prices[val]);
 
-  if ($('#product_matt').attr('checked'))
-    price += parseFloat($('#product_matt_price').val());
-  if ($('#product_frame').attr('checked'))
-    price += parseFloat($('#product_frame_price').val());
+  if (jQuery('#product_matt').attr('checked'))
+    price += parseFloat(jQuery('#product_matt_price').val());
+  if (jQuery('#product_frame').attr('checked'))
+    price += parseFloat(jQuery('#product_frame_price').val());
 
-  $('#show_price').html(formatCurrency(price));
-  $('#product_price').val(price);
+  jQuery('#show_price').html(formatCurrency(price));
+  jQuery('#product_price').val(price);
 }

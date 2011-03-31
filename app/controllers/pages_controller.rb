@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+	
+   before_filter :login_required, :except => [ ]
+   
   # GET /pages
   # GET /pages.xml
   def index
@@ -45,7 +48,7 @@ class PagesController < ApplicationController
     respond_to do |format|
       if @page.save
         flash[:notice] = 'Page was successfully created.'
-        format.html { redirect_to "/pages/" }
+        format.html { redirect_to "/content-pages/" }
         format.xml  { render :xml => @page, :status => :created, :location => @page }
       else
         format.html { render :action => "new" }
@@ -62,7 +65,7 @@ class PagesController < ApplicationController
     respond_to do |format|
       if @page.update_attributes(params[:page])
         flash[:notice] = 'Page was successfully updated.'
-        format.html { redirect_to "/pages/" }
+        format.html { redirect_to "/content-pages/" }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -78,7 +81,7 @@ class PagesController < ApplicationController
     @page.destroy
 
     respond_to do |format|
-      format.html { redirect_to(pages_url) }
+      format.html { redirect_to "/content-pages/"  }
       format.xml  { head :ok }
     end
   end

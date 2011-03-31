@@ -13,7 +13,7 @@
 
     <div id="content">
 
-		<% form_for @page,:html => { :multipart => true } do |f| %>
+		<% form_for @page,:url=>{:action=>'create'},:html => { :multipart => true } do |f| %>
 		  
 		  <div id="breadcrumb">
 		  	   <%= link_to "Pages", pages_path %> &raquo; New

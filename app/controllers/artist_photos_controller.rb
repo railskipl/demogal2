@@ -1,4 +1,7 @@
 class ArtistPhotosController < ApplicationController
+	
+   before_filter :login_required, :except => [ ]
+   
   # GET /artist_photos
   # GET /artist_photos.xml
   def index

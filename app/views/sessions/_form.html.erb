@@ -1,17 +1,31 @@
-<% form_tag session_path do -%>
-  <div id="login-form">
-    <div id="login-inputs">
-      <%= label_tag 'username' %><br />
-      <%= text_field_tag 'login', @login, :maxlength => 15 %><br />
-      <%= label_tag 'password' %><br/>
-      <%= password_field_tag 'password', nil %><br />
+<% form_tag :session do -%>
+  		<div id="login_area">
+        <label for="username">Username</label>
+        <div id="username_textbox_bg">
+          <%= text_field_tag 'login', @login, :maxlength => 15 %>
+        </div>
+
+        <label for="password">Password</label>
+        <div id="password_textbox_bg">
+          <%= password_field_tag 'password', nil %>
+        </div>
+
+        <div id="checkbox_area">
+         <%= check_box_tag 'remember_me', '1', @remember_me %>
+          <label for="remember">Remember me</label>
+        </div>
+
+        <div id="submit_area">
+          <%= submit_tag "Login", :class => "submit" %>
+        </div>
+        
+        <% if !flash.empty? %>
+          <div id="notice"><%= flash[:error] %></div>
+        <% end %>
+        
+        </div>
     </div>
-    <div id="login-checkbox">
-      <%= check_box_tag 'remember_me', '1', @remember_me %>
-      <%= label_tag 'remember_me', 'Remember me' %>
-    </div>
-    <div id="login-submit">
-      <%= submit_tag 'Sign In &raquo;' %>
-    </div>
-  </div>
 <% end -%>
+
+
+	  

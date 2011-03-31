@@ -1,0 +1,58 @@
+	<div class="contentinside">
+			
+			<div class="lefter">
+				
+				<div id="side">
+		        <% if @cart %>
+		          <% hidden_div_if(@cart.items.empty?, :id => "cart") do %>
+		            <%= render(:partial => "cart", :object => @cart) %>
+		          <% end %>
+		        <% end %>
+		       </div>
+		       
+					<div id="navigation">
+						<%= render :partial =>"shared/category_list", :locals=>{:categories=>Category.all} %>
+					</div>
+			</div>
+			<div class="mid-content">
+				<div class="depot-form">
+				
+				  <%= error_messages_for 'order' %>
+				
+				  <% form_for :order, :url => { :action => :save_order } do |form| %>
+				    <fieldset>
+				      <legend>Please Enter your Details</legend>
+				
+				      <div>
+				        <%= form.label :name, 'Name: ' %>
+				        <%= form.text_field :name, :size => 40, :class => "inputfld text validate[required,length[2,25]]" %>
+				      </div>
+				      
+				      <div>
+				        <%= form.label :email, 'Email: ' %>
+				        <%= form.text_field :email, :size => 40, :class => "inputfld text validate[required,custom[email]]" %>
+				      </div>
+				
+				      <div>
+				        <%= form.label :address, 'Address: ' %>
+				        <%= form.text_area :address, :rows => 3, :cols => 34 %>
+				      </div>
+				
+				      <div>
+				        <%= form.label :phone, 'Phone No.: ' %>
+				        <%= form.text_field :phone, :size => 40, :class => "inputfld text validate[required,custom[telephone]]" %>
+				      </div>
+				      
+				      <div>
+				        <%= form.label :shipping_address, 'Shipping Address: ' %>
+				        <%= form.text_area :shipping_address, :rows => 3, :cols => 34, :class => 'text long validate[required,length[4,200]]' %>
+				      </div>
+				
+					<div style="padding-left:134px;"> <%= submit_tag 'Place Order', :class => "submit-btn" %> </div>
+				      
+				    </fieldset>
+				  <% end %>
+				</div>
+			</div>
+						  
+		</div>

@@ -1,4 +1,7 @@
 class ArtistsController < ApplicationController
+	
+  before_filter :login_required, :except => [ ]
+  
   # GET /artists
   # GET /artists.xml
   def index

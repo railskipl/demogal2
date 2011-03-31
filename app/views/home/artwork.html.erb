@@ -2,6 +2,23 @@
 	
 			<div class="lefter">
 				<div style="height:80px;">&nbsp;</div>
+				
+				
+				
+				
+				
+				<div id="side">
+		        <% if @cart %>
+		          <% hidden_div_if(@cart.items.empty?, :id => "cart") do %>
+		            <%= render(:partial => "cart", :object => @cart) %>
+		          <% end %>
+		        <% end %>
+		       </div>
+		       
+		       
+		       
+		      
+		      
 					<div id="navigation">
 						<%= render :partial =>"shared/category_list", :locals=>{:categories=>Category.all} %>
 					</div>
@@ -24,7 +41,20 @@
 						<p><strong>Title</strong>: <%= @artist_photo.title %></p>
 						<p><strong>Code</strong>: <%= @artist_photo.code %></p>
 					    <p><strong>Dimensions</strong>: <%= @artist_photo.dimension %></p> 
-					    <p><strong>Description</strong>: <div class="content_cms all"><%= @artist_photo.description %></div></p>
+					    <% if @artist_photo.description.nil? %>
+					    <% else %>
+					    <strong>Description</strong>: <div class="content_cms all"><%= @artist_photo.description %></div><br/>
+					    <% end %>
+					    <% if @artist_photo.price.nil? %>
+					    <% else %>
+					    <p class="price"><strong>Price:</strong> <span id="show_price"><%= @artist_photo.price %></span>
+					    	<% form_remote_tag :url => { :action => 'add_to_cart', :id =>  @artist_photo.id } do %>
+					    	
+					    	   <button class="buynow" type="submit"></button>
+        						
+      						<% end %>
+						</p>
+						<% end %>
 					</div><br />
 				
 				<div style="height:15px; padding-top:297px;">&nbsp;</div>

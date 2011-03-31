@@ -12,8 +12,7 @@ class Page < ActiveRecord::Base
   
   has_attached_file :photo, 
                     :styles => { :thumb => "" },
-                    :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-                    :path => "public/attachments/pages/:id/:style/:basename.:extension",
+                    
                     :convert_options => {
                           :thumb => "-gravity center -thumbnail 230x178^ -extent 230x178"
                       }

@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
 
   def new
-  end
+  	
+   end
 
   def create
     logout_keeping_session!
@@ -10,19 +11,21 @@ class SessionsController < ApplicationController
       self.current_user = user
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
-      redirect_back_or_default('/')
+      redirect_back_or_default('/artists')
     else
-      flash[:error] = "Invalid login/password combination. Please try again, or contact an admin."
-      logger.warn "Failed login for '#{params[:login]}' from #{request.remote_ip} at #{Time.now.utc}"
+      flash[:error] = "Invalid username or password combination."
+      
       @login       = params[:login]
       @remember_me = params[:remember_me]
-      render :action => 'new'
+      redirect_back_or_default('/admin/login')
     end
   end
 
+   
+
   def destroy
     logout_killing_session!
-    redirect_back_or_default('/')
+    redirect_back_or_default('/admin/login')
   end
 
 end

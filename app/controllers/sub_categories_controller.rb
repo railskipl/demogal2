@@ -1,4 +1,7 @@
 class SubCategoriesController < ApplicationController
+
+   before_filter :login_required, :except => [ ]
+   
   # GET /sub_categories
   # GET /sub_categories.xml
   def index

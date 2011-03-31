@@ -1,18 +1,43 @@
 	<ul class="tabs">
 		<li><a href="#tab1">Artist Info</a></li>
-		<li><a href="#tab2">Contact Person</a></li>
+		<li><a href="#tab2">Socialize</a></li>
 	</ul>
 	<div class="tab_container">
 		<% for artist in artist_infos %>
-		<div id="tab1" class="tab_content">
+		<div id="tab1" class="tab_content tabc">
 			<div class="artists_info"> 
-				<%= image_tag artist.photo.url(:thumb) %>           
+				<% if artist.photo.url(:thumb) == "/photos/thumb/missing.png" %> 
+					<img src="/images/default.gif">
+				<% else %>
+					<%= image_tag artist.photo.url(:thumb) %> 
+				<% end %>         
 				<div class="content_cms"><%= artist.artist_info %></div>
       		</div>
     	</div>
 		<div id="tab2" class="tab_content">
 			<div class="artists_info">            
-				<div class="content_cms"><%= artist.contact_person %></div>
+				
+				<div style="padding-top:40px;">
+					<script type="text/javascript">
+						var act = new gigya.services.socialize.UserAction();
+						act.setUserMessage("This is the user message");
+						act.setTitle("The Nagpur Art Gallery Team");
+						act.setLinkBack("http://www.kunalinfotech.net/");
+						act.setDescription("Original Art for Sale | Landscape and Contemporary Art Paintings from One of the Best Online site.");
+						act.addActionLink("Read More", "http://www.kunalinfotech.net/");
+						var showShareBarUI_params=
+						{ 
+						  containerID: 'componentDiv',
+						  shareButtons: 'Share,Facebook,Email,Twitter,LinkedIn,Google,Messenger,Myspace',
+						  showCounts: 'none',
+						  userAction: act
+						}
+						</script>
+						<div id="componentDiv"></div>
+						<script type="text/javascript">
+						   gigya.services.socialize.showShareBarUI(conf,showShareBarUI_params);
+					</script>
+				</div>
        		</div>
 		</div>
 		<% end %>

@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user && @user.valid? && @user.save
       self.current_user = @user
-      redirect_back_or_default('/')
+      redirect_back_or_default('/artists')
     else
       flash[:error]  = "We couldn't set up that account, sorry. Please try again, or contact an admin."
       render :action => 'new'

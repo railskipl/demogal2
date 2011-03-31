@@ -13,7 +13,7 @@
 
     <div id="content">
 
-		<% form_for @page,:html => { :multipart => true } do |f| %>
+		<% form_for @page,:url=>{:action=>'update'},:html => { :multipart => true } do |f| %>
 		
 		  <div id="breadcrumb">
 		  	   <%= link_to "Pages", pages_path %> &raquo; Edit
@@ -41,6 +41,7 @@
 			  	
 				</p>
 		  </div>
+		  <div style="width:100%; float:left;">
 		  <p>
 		    <%= f.label :body %>
 		    <%= f.text_area :body, :class => 'tiny_mce long validate[required]' %>
@@ -53,6 +54,7 @@
 			<%= link_to "#{image_tag("/images/icons/negative.png")}Cancel", pages_path, :class => 'button negative' %>
 		    
 		  </p>
+		  </div>
 		  
 		<% end %>
 

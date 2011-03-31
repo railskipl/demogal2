@@ -25,10 +25,10 @@
 						"regex":"none",
 						"alertText":"* Your field is not matching"},		
 					"telephone":{
-						"regex":"/^[0-9\-\(\)\ ]+jQuery/",
+						"regex":"/^[\(\)0-9\- \+\.]{8,20}$/",
 						"alertText":"* Invalid phone number"},	
 					"email":{
-						"regex":"/^[a-zA-Z0-9_\.\-]+\@([a-zA-Z0-9\-]+\.)+[a-zA-Z0-9]{2,4}jQuery/",
+						"regex":"/^(?:[_a-z0-9-]+)(\.[_a-z0-9-]+)*@([a-z0-9-]+)(\.[a-zA-Z0-9\-\.]+)*(\.[a-z]{2,4})$/i",
 						"alertText":"* Invalid email address"},	
 					"date":{
                          "regex":"/^[0-9]{4}\-\[0-9]{1,2}\-\[0-9]{1,2}jQuery/",
